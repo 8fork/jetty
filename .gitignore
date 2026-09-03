@@ -1,1 +1,4 @@
 jetty
+*.o
+wl-copy
+less
