@@ -3,16 +3,16 @@
 #include <stdio.h>
 #include <string.h>
 
-// Font definition
+// font definition
 const char *font = "Cousine Nerd Font";
 const char *fontsize = "15";
 char fontstr[128];
 
-// Other config options
+// other config options
 int padding = 10;
 const char *windowname = "jetty";
 
-// Cursor type
+// cursor type
 /* X1 for block
    X2 for underline
    X3 for line
@@ -20,7 +20,7 @@ const char *windowname = "jetty";
    1X for blink */
 int cursor = 01;
 
-// Color definitions
+// color definitions
 const char *bg = "#121212";
 const char *fg = "#fdfdfd";
 
@@ -41,6 +41,8 @@ const char *color12 = "#77daff";
 const char *color13 = "#f9c2f0";
 const char *color14 = "#99ffff";
 const char *color15 = "#ffffff";
+
+// functions
 
 static gboolean onkeypress(GtkWidget *widget, GdkEventKey *event, gpointer user_data) {
     VteTerminal *terminal = VTE_TERMINAL(widget);
@@ -64,6 +66,8 @@ static gboolean onkeypress(GtkWidget *widget, GdkEventKey *event, gpointer user_
 static void on_child_exit(VteTerminal *vte, gint status, gpointer user_data) {
     gtk_main_quit();
 }
+
+// main
 
 int main(int argc, char *argv[]) {
     sprintf(fontstr, "%s %s", font, fontsize);
