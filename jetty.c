@@ -10,6 +10,7 @@ char fontstr[128];
 
 // Other config options
 int padding = 10;
+const char *windowname = "jetty";
 
 // Cursor type
 /* X1 for block
@@ -41,6 +42,8 @@ const char *color13 = "#f9c2f0";
 const char *color14 = "#99ffff";
 const char *color15 = "#ffffff";
 
+
+
 static void on_child_exit(VteTerminal *vte, gint status, gpointer user_data) {
     gtk_main_quit();
 }
@@ -50,7 +53,7 @@ int main(int argc, char *argv[]) {
     gtk_init(&argc, &argv);
 
     GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window), "wt");
+    gtk_window_set_title(GTK_WINDOW(window), windowname);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
     char css_buffer[128];
