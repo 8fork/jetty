@@ -1,0 +1,18 @@
+jetty - A tiny GTK terminal all in one file.
+
+===========================================================
+
+How to install.
+
+    1. Run 'make'.
+    2. Run 'make install' with elevated privileges.
+
+How to configure.
+
+    1. Open 'jetty.c' in a text editor.
+    2. Edit the variables at the top of the file.
+    3. Reinstall.
+
+Launch via either '/usr/local/bin/jetty' if it is not in your path, or just 'jetty'.
+
+(c) 2026 Mohammed Zakariyah/8fork under the MIT license.
