@@ -63,7 +63,7 @@ static gboolean onkeypress(GtkWidget *widget, GdkEventKey *event, gpointer user_
     return FALSE;
 }
 
-static void on_child_exit(VteTerminal *vte, gint status, gpointer user_data) {
+static void onchildexit(VteTerminal *vte, gint status, gpointer user_data) {
     gtk_main_quit();
 }
 
@@ -146,6 +146,7 @@ int main(int argc, char *argv[]) {
     gdk_rgba_parse(&palette[15], color15);
 
     vte_terminal_set_colors(VTE_TERMINAL(terminal), &fg_rgba, &bg_rgba, palette, 16);
+    vte_terminal_set_scrollback_lines(VTE_TERMINAL(terminal), 512);
 
     char *default_shell = g_strdup(g_getenv("SHELL"));
     if (!default_shell) default_shell = g_strdup("/bin/sh");
@@ -165,7 +166,7 @@ int main(int argc, char *argv[]) {
         NULL, NULL
     );
 
-    g_signal_connect(terminal, "child-exited", G_CALLBACK(on_child_exit), NULL);
+    g_signal_connect(terminal, "child-exited", G_CALLBACK(onchildexit), NULL);
 
     gtk_widget_show_all(window);
     gtk_main();
